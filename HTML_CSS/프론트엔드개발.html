@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>지원서</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .container {
+        width: 520px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #ffffff;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px 40px;
+        margin: 0;
+      }
+      h1 {
+        color: #333;
+        text-align: center;
+        font-size: 1.8em;
+      }
+      p {
+        color: #666;
+        text-align: center;
+      }
+      hr {
+        border: 0;
+        height: 1px;
+        background: #ddd;
+        margin: 20px 0;
+      }
+      h4 {
+        color: #444;
+        margin-bottom: 8px;
+        font-size: 1.2em;
+      }
+      .detail {
+        display: flex;
+        align-items: center;
+        margin: 12px 0;
+      }
+      .detail label {
+        width: 80px;
+        font-weight: bold;
+        color: #333;
+      }
+      .detail input[type="text"],
+      .detail input[type="tel"],
+      textarea {
+        flex: 1;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1em;
+        width: 100%;
+      }
+
+      button {
+        width: 48%;
+        padding: 10px;
+        margin: 10px 1%;
+        font-size: 1em;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        color: #fff;
+      }
+      button[type="submit"] {
+        background-color: #4caf50;
+      }
+      button[type="reset"] {
+        background-color: #f44336;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>프론트앤드 개발자 지원서</h1>
+      <p>
+        HTML, CSS, Javascript에 대한 기술적 이해와 경험이 있는 분을 찾습니다.
+      </p>
+      <hr />
+      <form action="#">
+        <h4>개인정보</h4>
+        <div class="detail">
+          <label for="name">이름</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="공백없이 입력하세요."
+          />
+        </div>
+        <div class="detail">
+          <label for="tel">연락처</label>
+          <input type="tel" name="tel" id="tel" />
+        </div>
+        <h4>지원 분야</h4>
+        <div class="detail">
+          <div>
+            <input type="radio" name="field" id="publish" value="1" />
+            <label for="publish">웹퍼블리싱</label>
+          </div>
+          <div>
+            <input type="radio" name="field" id="front" value="2" />
+            <label for="front">웹 프론트앤드</label>
+          </div>
+          <div>
+            <input type="radio" name="field" id="mobile" value="3" />
+            <label for="mobile">모바일 앱</label>
+          </div>
+        </div>
+        <h4>지원동기</h4>
+        <textarea
+          name="desc"
+          cols="70"
+          rows="5"
+          placeholder="본사 지원 동기를 간략히 써 주세요."
+        ></textarea>
+        <button type="submit">접수하기</button>
+        <button type="reset">다시쓰기</button>
+      </form>
+    </div>
+  </body>
+</html>

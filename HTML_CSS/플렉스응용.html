@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            max-width: 1000px;
+            min-width: 500px;
+            box-sizing: border-box;
+            margin: auto; /* 중앙으로 정렬 */
+        }
+        .container {
+            background-color: royalblue;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+        .item {
+            width: 100px;
+            height: 100px;
+            border: 2px dashed red; /* 점선 */
+            margin: 10px;
+            background-color: orange;
+            display: flex; /* item 내부 글자를 center 정렬하기 위해 */
+            justify-content: center; /* 상동 */
+            align-items: center; /* 상동 */
+        }
+        .item:nth-child(2) {
+            flex-grow: 1;
+        }
+        .item:nth-child(3) {
+            flex-grow: 1;
+            background-color: red;
+            border: 2px dashed blue; /* 점선 */
+        }
+        .item:nth-child(5) {
+            flex-grow: 1;
+        }
+        .item:nth-child(6) {
+            flex-grow: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+    </div>
+    <!-- 1,4 는 100px 유지, 2,3 1:1 비율 / 5,6은 1:2 비율로 (flex-grow로) 남는 공간 비율을 가져감 -->
+</body>
+</html>

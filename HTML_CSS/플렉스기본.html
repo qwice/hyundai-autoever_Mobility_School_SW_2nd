@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body { /* 항상 보여지는 화면의 가운데 */
+            display: flex;
+            justify-content: cneter;
+            align-items: center;
+            height: 100vh;
+        }
+        .flex-container{
+            width: 300px;
+            height: 200px;
+            background-color: bisque;
+            border: 1px solid black;
+            display: flex;
+            /*flex-wrap: wrap;*/
+            flex-flow: row wrap;
+            /* justify-content: center; 주축 정렬 > flex-flow가 row이므로 수평기준, column이면 수직기준 */
+            /* /* justify-content: flex-start;  시작지점부터 정렬  */
+            /* justify-content: flex-end;  끝지점부터 정렬  */
+            /* justify-content: space-between;  균등하게 정렬 */
+            justify-content: space-around; /* 균등하게 정렬(중간이 좀 띄워짐)  */
+            /* justify-content: space-evenly;  균등하게 정렬(중간도 균등), 익스플로어 미지원 */
+
+            /* align-items: stretch; 교차축 정렬, 기본 특성 > 높이를 지정 안하면 남는 공간을 다 채움 */
+            align-items: center; /* 중앙 정렬 */
+        }
+        .flex-item{
+            width: 80px;
+            height: 50px;
+            /* margin: 2px; */
+            /* text-align: center; 글자 수평 중앙정렬 */
+            border: 1px solid darkblue;
+            color: white;
+            background-color: orange;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .flex-item:nth-child(2n){
+            background-color: orangered;
+            /*flex-grow: 1;*/
+        }
+        /* .flex-item:first-child{
+            align-self: flex-end; /* 자기 자신한테만 특성을 적용하고 싶을때 
+        } */
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="flex-item">item 1</div>
+        <div class="flex-item">item 2</div>
+        <div class="flex-item">item 3</div>
+        <div class="flex-item">item 4</div>
+        <div class="flex-item">item 5</div>
+        <div class="flex-item">item 6</div>
+        <div class="flex-item">item 7</div>
+        <div class="flex-item">item 8</div>
+        <div class="flex-item">item 9</div>
+    </div>
+</body>
+</html>

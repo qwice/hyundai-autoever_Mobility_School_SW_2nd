@@ -1,0 +1,128 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            max-width: 1280px;
+            min-width: 768px;
+            margin: auto;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: blue;
+        }
+        .box {
+            width: 80px;
+            height: 80px;
+            background-color: orange;
+            border: 1px dashed red;
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 5px;
+        }
+        .menu {
+            height: 80px;
+            flex-grow: 1;
+            background-color: black;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 5px;
+        }
+        .menu a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">1</div>
+        <div class="menu">
+            <a href="#">메뉴1</a>
+            <a href="#">메뉴2</a>
+            <a href="#">메뉴3</a>
+            <a href="#">메뉴4</a>
+        </div>
+        <div class="box">3</div>
+    </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            width: 100vw;
+            display: flex;
+            background-color: royalblue;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+        .box {
+            display: flex;
+            width: 100px;
+            height: 100px;
+            margin: 4px;
+            border: 3px dashed red;
+            justify-content: center;
+            align-items: center;
+            background-color: orange;
+        }
+        nav {
+            display: flex;
+            flex-grow: 1;
+            margin: 4px;
+            background-color: red;
+            border: 3px dashed black;
+        }
+        .navbar {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #333;
+        padding: 1rem;
+       }
+
+       .navbar a {
+        text-decoration: none;
+        color: white;
+        font-size: 1.2rem;
+       }
+
+       .navbar a:hover {
+        color: #aaa
+       }
+       
+    </style>
+</head>
+<body>
+    <header>
+        <div class="box">1</div>
+        <nav class="navbar">
+            <a href="#">메뉴1</a>
+            <a href="#">메뉴2</a>
+            <a href="#">메뉴3</a>
+            <a href="#">메뉴4</a>
+          </nav>
+        <div class="box">3</div>
+    </header>
+    
+</body>
+</html>
