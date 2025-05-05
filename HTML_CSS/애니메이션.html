@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border-color: red;
+            animation-name: bgchange; /* 애니메이션 이름 ex) 함수명 */
+            animation-duration: 5s; /* 애니메이션 지속 시간 */
+            animation-iteration-count: 5; /* 애니메이션 반복 횟수 */
+            /* animation-iteration-count: infinite; */
+        }
+
+        @keyframes bgchange { /* animation-name 작성 */
+            0% {background-color: red;}
+            15% {background-color: orange;}
+            30% {background-color: yellow;}
+            45% {background-color: green;}
+            60% {background-color: blue;}
+            75% {background-color: navy;}
+            100% {background-color: purple;}
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
