@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid-container {
+            display: grid;
+            /* grid-template-columns: 200px 200px 200px; column에 200px 3개를 배치하겠다 */
+            /* grid-template-columns: 2fr 1fr 1fr; 2 : 1 : 1 비율 */
+            /* grid-template-columns: repeat(3, 1fr); 1: 1: 1 비율로 3개 만들겠다 */
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* 최소 크기는 200px, 최대는 1fr로 자동으로 채워짐 */
+            grid-template-rows: 100px 100px; /* row에 100px 2개를 배치하겠다 -> 2행 3열 */
+        }
+        .grid-item {
+            color: black;
+            background-color: royalblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .grid-item:nth-last-child(2n) {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="grid-item">그리드 박스 1번</div>
+        <div class="grid-item">그리드 박스 2번</div>
+        <div class="grid-item">그리드 박스 3번</div>
+        <div class="grid-item">그리드 박스 4번</div>
+        <div class="grid-item">그리드 박스 5번</div>
+        <div class="grid-item">그리드 박스 6번</div>
+    </div>
+</body>
+</html>
