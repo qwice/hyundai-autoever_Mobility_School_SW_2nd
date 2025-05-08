@@ -1893,16 +1893,6 @@ a.rCup3_wrap {
     bottom: 0;
 }
 
-@media screen and (min-width: 961px) {
-    .wrap_inner {
-        left: 50%;
-        margin-left: -640px;
-        position: absolute;
-        top: 0;
-        width: 1280px;
-    }
-}
-
 .wrap_inner {
     left: 50%;
     margin-left: -640px;
