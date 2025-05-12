@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        img {
+            width: 300px;
+            height: 300px;
+        }
+        h3 {
+            font-style: bold;
+        }
+        .expl {
+            width: 300px;
+            display: none;
+        }
+        button {
+            position: relative;
+            left: -100px;
+            top: -30px;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <img src="./image/잇지.jpeg">
+    <button onclick="explain()">상세 설명 보기</button>
+    <div class="expl">
+        <h3>그룹 있지</h3><br>
+        팀명 'ITZY'는 '너희가 원하는 거 전부 있지? 있지!'라는 뜻을 가지고 있으며, 정식 한글 표기법은 있지이다. 혹 영어명인 'ITZY'로만 들어본 사람들이 한글로는 어떻게 적는지 몰라 '잇지'라고 부르는 경우도 꽤 많이 있는데, '있지'라고 불러야 한다며 정정해주는 것이 팬덤 잇지에게는 일상이 되었다.
+    </div>
+
+    <script>
+        function explain() {
+            const btnEl = document.querySelector("button");
+            const disEl = document.querySelector(".expl")
+
+            if(btnEl.innerText === "상세 설명 보기"){
+                btnEl.innerText = "상세 설명 닫기";
+                disEl.style.display = "block";
+                btnEl.style.top = "210px";
+                btnEl.style.left = "-110px";
+            } else {
+                btnEl.innerText = "상세 설명 보기";
+                disEl.style.display = "none";
+                btnEl.style.top = "-30px";
+                btnEl.style.left = "-100px";
+            }
+        }
+    </script>
+</body>
+</html>

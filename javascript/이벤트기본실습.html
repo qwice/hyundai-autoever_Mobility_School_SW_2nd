@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .divM {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .divI {
+            width: 100px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .content {
+            width: 320px;
+            height: 330px;
+            background-color: green;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="divM">
+        <button class="divI" id="green" style="background-color: green;">green</button>
+        <button class="divI" id="blue" style="background-color: blue;">blue</button>
+        <button class="divI" id="red" style="background-color: red;">red</button>
+    </div>
+    <div class="divM">
+        <div class="content"></div>
+    </div>
+
+    <script>
+        const btnEls = document.querySelectorAll(".divI"); // 모든 버튼 선택
+        const contentEl = document.querySelector(".content");
+    
+        btnEls.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                // const color = window.getComputedStyle(btn).backgroundColor;
+                const color = btn.id;
+                // console.log(color);
+                contentEl.style.backgroundColor = color;
+            });
+        });
+    </script>
+</body>
+</html>
