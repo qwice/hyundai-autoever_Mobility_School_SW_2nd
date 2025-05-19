@@ -11,7 +11,13 @@ import Card from "./components/Card.vue";
 import UserCard from "./components/UserCard.vue";
 import ChildComponent from "./components/ChildComponent.vue";
 import News from "./components/News.vue";
+import EventRef from "./components/EventRef.vue";
+import Signup from "./components/Signup.vue";
 import { reactive, ref } from "vue";
+import EventHandle from "./components/EventHandle.vue";
+import SelectBox from "./components/SelectBox.vue";
+import ArrayRender from "./components/ArrayRender.vue";
+import MemberList from "./components/MemberList.vue";
 // const inputName = ref("");
 // const job = ref("");
 // const age = ref();
@@ -103,7 +109,14 @@ import { reactive, ref } from "vue";
 
     <!-- <div>{{ message }}</div>
     <ChildComponent @send-message="handleMessage" /> -->
-    <News />
+    <!-- <News /> -->
+    <!-- <EventRef /> -->
+
+    <!-- <Signup /> -->
+    <!-- <EventHandle /> -->
+    <!-- <SelectBox /> -->
+    <!-- <ArrayRender /> -->
+    <MemberList />
 </template>
 
 <style scoped>
