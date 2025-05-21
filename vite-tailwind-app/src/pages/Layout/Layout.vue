@@ -11,4 +11,7 @@
 <script setup>
 import Header from "./Header.vue";
 import Footer from "./Footer.vue";
+import { useThemeStore } from "../../stores/theme";
+
+const themeColor = useThemeStore().color;
 </script>

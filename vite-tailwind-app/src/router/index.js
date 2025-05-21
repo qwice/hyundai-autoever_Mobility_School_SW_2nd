@@ -4,6 +4,8 @@ import Signup from "../pages/Signup.vue";
 import Layout from "../pages/Layout/Layout.vue";
 import List from "../pages/Layout/List.vue";
 import Empty from "../pages/Layout/Empty.vue";
+import ThemeSetting from "../pages/Layout/ThemeSetting.vue";
+import Tourist from "../pages/Layout/Tourist.vue";
 
 const routes = [
     {
@@ -30,6 +32,16 @@ const routes = [
                 path: "empty",
                 name: "Empty",
                 component: Empty,
+            },
+            {
+                path: "themesetting",
+                name: "ThemeSetting",
+                component: ThemeSetting,
+            },
+            {
+                path: "tourist",
+                name: "tourist",
+                component: Tourist,
             },
         ],
     },

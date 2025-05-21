@@ -1,5 +1,16 @@
 <template>
-    <router-view />
+    <div
+        :style="{ backgroundColor: themeStore.color }"
+        class="min-h-screen transition-all"
+    >
+        <router-view />
+        <Modal />
+    </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { useThemeStore } from "./stores/theme";
+import Modal from "./components/base/Modal.vue";
+
+const themeStore = useThemeStore();
+</script>

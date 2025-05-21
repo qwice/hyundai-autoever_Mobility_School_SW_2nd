@@ -48,6 +48,9 @@ import BaseButton from "../components/base/BaseButton.vue";
 import { ref, watch, computed } from "vue";
 import axios from "axios";
 import { useRouter } from "vue-router";
+import { useModalStore } from "../stores/modal";
+
+const modal = useModalStore();
 
 const router = useRouter();
 
@@ -105,14 +108,35 @@ const login = async () => {
         );
 
         if (res.data) {
-            alert("로그인 성공");
-            router.push("/Layout");
+            const detail = await axios.get(
+                `http://222.117.237.119:8111/users/detail/${payload.email}`
+            );
+            console.log("detail : ", detail);
+            localStorage.setItem("name", detail.data.name);
+            console.log("name : ", localStorage.getItem("name"));
+            //alert("로그인 성공");
+            if (
+                await modal.openA({
+                    title: "성공",
+                    msg: "로그인에 성공하셨습니다.",
+                })
+            ) {
+                router.push("/Layout");
+            }
         } else {
-            alert("로그인 실패");
+            modal.openB({
+                title: "실패",
+                msg: "로그인에 실패하셨습니다.",
+            });
+            //alert("로그인 실패");
         }
     } catch (err) {
         console.error(err);
-        alert("로그인 실패! 서버 오류 발생");
+        modal.openA({
+            title: "오류",
+            msg: "서버에 오류가 발생했습니다.",
+        });
+        //alert("로그인 실패! 서버 오류 발생");
     }
 };
 </script>
