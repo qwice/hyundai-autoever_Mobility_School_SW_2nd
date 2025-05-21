@@ -73,8 +73,11 @@
 import BaseInput from "../components/base/BaseInput.vue";
 import BaseButton from "../components/base/BaseButton.vue";
 import { ref, watch, computed } from "vue";
-import axios from "axios";
+// import axios from "axios";
+import { useAuthApi } from "../api/auth";
 import { useRouter } from "vue-router";
+
+const { signup, exists } = useAuthApi();
 
 const router = useRouter();
 
@@ -200,26 +203,32 @@ const signup = async () => {
         return;
     }
 
-    try {
-        const payload = {
-            email: email.value,
-            pwd: pwd.value,
-            name: name.value,
-        };
-        const res = await axios.post(
-            "http://222.117.237.119:8111/auth/signup",
-            payload
-        );
+    // try {
+    //     const payload = {
+    //         email: email.value,
+    //         pwd: pwd.value,
+    //         name: name.value,
+    //     };
+    //     const res = await axios.post(
+    //         "http://222.117.237.119:8111/auth/signup",
+    //         payload
+    //     );
 
-        if (res.data) {
-            alert("회원 가입 성공");
-            router.push("/");
-        } else {
-            alert("회원 가입 실패");
-        }
-    } catch (err) {
-        console.error(err);
-        alert("가입 실패! 서버 오류 발생");
+    //     if (res.data) {
+    //         alert("회원 가입 성공");
+    //         router.push("/");
+    //     } else {
+    //         alert("회원 가입 실패");
+    //     }
+    // } catch (err) {
+    //     console.error(err);
+    //     alert("가입 실패! 서버 오류 발생");
+    // }
+    const res = await signup(form.email, form.pwd, form.name);
+    if (res.data) {
+        router.push("/");
+    } else {
+        alert("회원가입 실패 ");
     }
 };
 </script>

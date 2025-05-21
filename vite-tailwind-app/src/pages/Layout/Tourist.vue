@@ -30,9 +30,6 @@ const selectedSpot = ref(null);
 let map = null;
 let markers = [];
 
-const serviceKey =
-    "Bk4hfzvI3ihloBb7y0JReGOEktttVbYgQoF%2Fr3wlUjAijt%2FDF8KEBkb46cfNU2EqxVpuQNwhJy4o6Tff6wd2%2Fw%3D%3D";
-
 // 마커를 지도에서 제거
 function clearMarkers() {
     markers.forEach((marker) => marker.setMap(null));
@@ -49,7 +46,9 @@ async function fetchSpotsInBounds(bounds) {
 
     const radius = (calcDistance(sw.Ma, sw.La, ne.Ma, ne.La) / 2) * 1000; // meter 단위
 
-    const url = `https://apis.data.go.kr/B551011/KorService2/locationBasedList2?serviceKey=${serviceKey}&MobileOS=WEB&MobileApp=AppTest&_type=json&mapX=${centerX}&mapY=${centerY}&radius=${radius}`;
+    const url = `https://apis.data.go.kr/B551011/KorService2/locationBasedList2?serviceKey=${
+        import.meta.env.VITE_SERVICE_KEY
+    }&MobileOS=WEB&MobileApp=AppTest&_type=json&mapX=${centerX}&mapY=${centerY}&radius=${radius}`;
 
     try {
         const res = await axios.get(url);
