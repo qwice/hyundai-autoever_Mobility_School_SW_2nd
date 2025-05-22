@@ -59,7 +59,7 @@ const emailMsg = ref("이메일을 입력해 주세요.");
 const pwd = ref("");
 const pwdType = ref("password");
 const pwdFontAweSome = ref("fa-eye");
-const pwdCheckType = ref("password");
+// const pwdCheckType = ref("password");
 
 watch(email, (newEmail) => {
     const pattern = /^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$/;
@@ -112,8 +112,14 @@ const login = async () => {
                 `http://222.117.237.119:8111/users/detail/${payload.email}`
             );
             console.log("detail : ", detail);
-            localStorage.setItem("name", detail.data.name);
-            console.log("name : ", localStorage.getItem("name"));
+            localStorage.setItem(
+                "info",
+                JSON.stringify({
+                    name: detail.data.name,
+                    email: detail.data.email,
+                })
+            );
+            console.log("name : ", JSON.parse(localStorage.getItem("info")));
             //alert("로그인 성공");
             if (
                 await modal.openA({
@@ -124,7 +130,7 @@ const login = async () => {
                 router.push("/Layout");
             }
         } else {
-            modal.openB({
+            modal.openA({
                 title: "실패",
                 msg: "로그인에 실패하셨습니다.",
             });

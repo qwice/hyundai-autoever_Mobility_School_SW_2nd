@@ -3,9 +3,9 @@
         <h1>회원가입</h1>
         <br />
         <form
-            @submit.prevent="signup"
-            id="signup"
-            class="flex flex-col items-center"
+            @submit.prevent="funcSignup"
+            id="funcSignup"
+            class="flex flex-col items-center relative"
         >
             <h3 class="self-start">아이디</h3>
             <BaseInput
@@ -28,16 +28,17 @@
             />
             <i
                 :class="pwdFontAweSome"
-                class="fas w-[30px] h-[30px] relative left-[150px] bottom-[13px] -translate-y-1/2 cursor-pointer"
+                class="fas w-[30px] h-[30px] flex items-center justify-center absolute left-[260px] top-[150px] -translate-y-1/2 cursor-pointer"
                 id="togglePwd"
                 @click="togglePassword"
-            ></i>
+            />
             <span
                 id="pwPatternConfirm"
                 :class="pwdColor"
-                class="block w-[250px] text-right text-[12px] text-gray-400"
+                class="block w-[260px] text-right text-[12px] text-gray-400"
                 >{{ pwdMsg }}</span
             >
+            <br />
             <h3 class="self-start">비밀번호 확인</h3>
             <BaseInput
                 :type="pwdCheckType"
@@ -46,16 +47,17 @@
             />
             <i
                 :class="pwdCheckFontAweSome"
-                class="fas w-[30px] h-[30px] relative left-[150px] bottom-[13px] -translate-y-1/2 cursor-pointer"
+                class="flex items-center justify-center absolute fas w-[30px] h-[30px] left-[260px] top-[255px] -translate-y-1/2 cursor-pointer"
                 id="togglePwdCheck"
                 @click="togglePasswordCheck"
-            ></i>
+            />
             <span
                 id="pwConfirm"
                 :class="pwdCheckColor"
                 class="block w-[250px] text-right text-[12px] text-gray-400"
                 >{{ pwdCheckMsg }}</span
             >
+            <br />
             <h3 class="self-start">이름</h3>
             <BaseInput
                 id="name"
@@ -76,8 +78,10 @@ import { ref, watch, computed } from "vue";
 // import axios from "axios";
 import { useAuthApi } from "../api/auth";
 import { useRouter } from "vue-router";
+import { useModalStore } from "../stores/modal";
 
 const { signup, exists } = useAuthApi();
+const modal = useModalStore();
 
 const router = useRouter();
 
@@ -180,7 +184,7 @@ const pwdCheckColor = computed(() => {
     return "text-gray-400";
 });
 
-const signup = async () => {
+const funcSignup = async () => {
     const emailPattern = /^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$/;
 
     if (!emailPattern.test(email.value)) {
@@ -224,11 +228,22 @@ const signup = async () => {
     //     console.error(err);
     //     alert("가입 실패! 서버 오류 발생");
     // }
-    const res = await signup(form.email, form.pwd, form.name);
+    const res = await signup(email.value, pwd.value, name.value);
     if (res.data) {
-        router.push("/");
+        if (
+            modal.openA({
+                title: "성공",
+                msg: "회원가입 성공",
+            })
+        ) {
+            router.push("/");
+        }
     } else {
-        alert("회원가입 실패 ");
+        modal.openA({
+            title: "오류",
+            msg: "회원가입 실패",
+        });
+        // alert("회원가입 실패 ");
     }
 };
 </script>

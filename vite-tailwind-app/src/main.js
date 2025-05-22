@@ -19,8 +19,9 @@ const kakaoScript = document.createElement("script");
 kakaoScript.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${
     import.meta.env.VITE_KAKAO_JS_KEY
 }&autoload=false`;
-kakaoScript.onload = () => {
-    // 스크립트가 완전히 로드된 후에 앱 마운트
-    createApp(App).use(router).use(pinia).mount("#app");
-};
+// kakaoScript.onload = () => {
+//     // 스크립트가 완전히 로드된 후에 앱 마운트
+//     createApp(App).use(router).use(pinia).mount("#app");
+// };
 document.head.appendChild(kakaoScript);
+createApp(App).use(router).use(pinia).mount("#app");

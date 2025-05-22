@@ -1,6 +1,6 @@
 <template>
     <header
-        class="bg-blue-600 text-white p-4 flex justify-between items-center"
+        class="bg-blue-600 text-white p-4 flex justify-between items-center fixed w-full z-50"
     >
         <h1 class="text-xl font-bold cursor-pointer" @click="goHome">My App</h1>
         <nav>
@@ -29,6 +29,11 @@
                     >
                 </li>
                 <li>
+                    <router-link to="/layout/mypage" class="hover:underline"
+                        >마이페이지</router-link
+                    >
+                </li>
+                <li>
                     <router-link
                         to="/"
                         class="text-red-600 font-bold hover:underline"
@@ -43,7 +48,7 @@
 
 <script setup>
 import { useRouter } from "vue-router";
-const name = localStorage.getItem("name");
+const name = JSON.parse(localStorage.getItem("info")).name;
 
 const router = useRouter();
 
