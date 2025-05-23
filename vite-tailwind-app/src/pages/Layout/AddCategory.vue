@@ -39,14 +39,15 @@ const onInsert = async (text) => {
     }
 };
 
-const onRemove = (id) => {
+const onRemove = async (id) => {
     selectedCategoryId.value = id;
-    if (
-        modal.openB({
-            title: "오류",
-            message: "카테고리를 정말 삭제하시겠습니까?",
-        })
-    ) {
+
+    const result = await modal.openB({
+        title: "",
+        msg: "카테고리를 정말 삭제하시겠습니까?",
+    });
+
+    if (result) {
         confirmModal();
     }
 };
@@ -58,7 +59,7 @@ const confirmModal = async () => {
     } catch (error) {
         modal.openA({
             title: "오류",
-            message: "카테고리 삭제에 실패했습니다.",
+            msg: "카테고리 삭제에 실패했습니다.",
         });
     }
 };

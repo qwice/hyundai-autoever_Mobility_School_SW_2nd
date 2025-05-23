@@ -17,6 +17,7 @@ export const useModalStore = defineStore("modal", {
 
             return new Promise((resolve) => {
                 this.resolve = resolve;
+                console.log(resolve);
             });
         },
         openB({ title, msg }) {
