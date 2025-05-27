@@ -4,20 +4,30 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Layout from "./pages/Layout";
 import News from "./pages/News";
+import UserStore from "./store/UserStore";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
     return (
-        <Router>
-            <Routes>
-                <Route element={<Layout />}>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/About" element={<About />} />
-                    <Route path="/profiles/:username" element={<Profile />} />
-                    <Route path="/news" element={<News />} />
-                </Route>
-            </Routes>
-        </Router>
+        <UserStore>
+            <Router>
+                <Routes>
+                    <Route path="/" element={<Login />} />
+                    <Route path="/Signup" element={<Signup />} />
+                    <Route element={<Layout />}>
+                        <Route path="/home" element={<Home />} />
+                        <Route path="/About" element={<About />} />
+                        <Route
+                            path="/profiles/:username"
+                            element={<Profile />}
+                        />
+                        <Route path="/news" element={<News />} />
+                    </Route>
+                </Routes>
+            </Router>
+        </UserStore>
     );
 }
 
