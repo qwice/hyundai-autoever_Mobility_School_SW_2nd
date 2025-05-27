@@ -8,6 +8,7 @@ import Info from "./Info";
 import Clock from "./Clock";
 import Counter from "./Counter";
 import Average from "./Average";
+import RefCnt from "./RefCnt";
 
 function App() {
     // const name = "name";
@@ -29,6 +30,7 @@ function App() {
             <Clock />
             <Counter />
             <Average />
+            <RefCnt />
         </>
     );
 }
