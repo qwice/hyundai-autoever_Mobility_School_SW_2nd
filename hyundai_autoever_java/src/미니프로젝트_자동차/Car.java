@@ -37,13 +37,5 @@ public abstract class Car {
         return H + "시간 " + M  + "분";
     }
 
-    public void getInfo() {
-        System.out.println("speed : " + speed);
-        System.out.println("kmperL : " + kmperL);
-        System.out.println("feul : " + feul);
-        System.out.println("seat : " + seat);
-        System.out.println("name : " + name);
-    }
-
     public abstract void setMode(boolean func);
 }

@@ -9,9 +9,6 @@ public class MakeCar {
         double selWeather = 0.0;
         int selected = 0;
         Car car = null;
-        SportCar sportCar = null;
-        Sedan sedan = null;
-        Bus bus = null;
         boolean func;
         boolean flag1 = true;
         boolean flag2 = true;
@@ -67,19 +64,16 @@ public class MakeCar {
             switch (selected) {
                 case 1:{
                     car = new SportCar();
-                    sportCar = (SportCar) car;
                     flag3 = false;
                     break;
                 }
                 case 2:{
                     car = new Sedan();
-                    sedan = (Sedan) car;
                     flag3 = false;
                     break;
                 }
                 case 3:{
                     car = new Bus();
-                    bus = (Bus)car;
                     flag3 = false;
                     break;
                 }
@@ -137,21 +131,20 @@ public class MakeCar {
         }
 
         System.out.println();
-        car.getInfo();
         switch (selected) {
             case 1:{
-                System.out.println(car.name + " : " + sportCar.audioInfo());
-                System.out.println(car.name + " : " + sportCar.autoDriveInfo());
+                System.out.println(car.name + " : " + ((SportCar)car).audioInfo());
+                System.out.println(car.name + " : " + ((SportCar)car).autoDriveInfo());
                 break;
             }
             case 2:{
-                System.out.println(car.name + " : " + sedan.audioInfo());
-                System.out.println(car.name + " : " + sedan.airconInfo());
+                System.out.println(car.name + " : " + ((Sedan)car).audioInfo());
+                System.out.println(car.name + " : " + ((Sedan)car).airconInfo());
                 break;
             }
             case 3:{
-                System.out.println(car.name + " : " + bus.autoDriveInfo());
-                System.out.println(car.name + " : " + bus.airconInfo());
+                System.out.println(car.name + " : " + ((Bus)car).autoDriveInfo());
+                System.out.println(car.name + " : " + ((Bus)car).airconInfo());
                 break;
             }
             default:{
